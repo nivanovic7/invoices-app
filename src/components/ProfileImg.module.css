@@ -1,0 +1,14 @@
+.container {
+  padding: 1rem;
+}
+
+.container img {
+  border-radius: 50%;
+  width: calc(var(--logo-width) - 1rem * 2);
+}
+
+@media (min-width: 50em) {
+  .container {
+    border-top: 1px solid var(--clr-neutral-300);
+  }
+}

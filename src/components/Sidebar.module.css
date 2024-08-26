@@ -1,0 +1,29 @@
+.sidebar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  background-color: var(--clr-secondary);
+}
+
+.sidebar > *:first-child {
+  margin-right: auto;
+}
+
+@media (min-width: 50em) {
+  .sidebar {
+    flex-direction: column;
+    min-height: 100vh;
+    width: min-content;
+  }
+
+  .sidebar > *:first-child {
+    margin-bottom: auto;
+  }
+}
+
+@media (max-width: 50em) {
+  .sidebar {
+    max-height: min-content;
+  }
+}

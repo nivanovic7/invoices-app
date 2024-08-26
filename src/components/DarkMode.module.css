@@ -1,0 +1,3 @@
+.darkMode svg {
+  stroke: var(--clr-neutral-100);
+}
