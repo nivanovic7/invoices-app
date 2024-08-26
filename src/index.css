@@ -130,6 +130,12 @@ body {
   background-color: var(--clr-primary);
 }
 
+.container {
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 /* Utility classes */
 
 .text-primary-400 {

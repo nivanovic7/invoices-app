@@ -1,0 +1,48 @@
+.filter {
+  position: relative;
+}
+
+.filter button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  background-color: inherit;
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+}
+
+.filter svg {
+  stroke: var(--clr-neutral-100);
+  transition: transform 0.1s;
+}
+
+.opened {
+  transform: rotate(90deg);
+}
+
+.closed {
+  transform: rotate(-90deg);
+}
+
+.options {
+  position: absolute;
+  top: 150%;
+  width: 100%;
+
+  background-color: var(--clr-neutral-100);
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.options li {
+  padding: 0.2rem;
+  cursor: pointer;
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-primary);
+}
+
+.options li:hover {
+  background-color: var(--clr-neutral-300);
+}
