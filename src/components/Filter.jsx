@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Filter.module.css";
 
 function Filter() {
@@ -6,8 +6,20 @@ function Filter() {
   const [isOpened, setIsOpened] = useState(false);
   const options = ["all", "paid", "pending", "draft"];
 
+  const filterRef = useRef(null);
+
+  useEffect(() => {
+    function onOutsideClick(e) {
+      if (filterRef && !filterRef.current.contains(e.target)) {
+        setIsOpened(false);
+      }
+    }
+    document.addEventListener("mousedown", onOutsideClick);
+    return () => document.removeEventListener("mousedown", onOutsideClick);
+  }, []);
+
   return (
-    <div className={styles.filter}>
+    <div ref={filterRef} className={styles.filter}>
       <button onClick={() => setIsOpened((isOpened) => !isOpened)}>
         <span>Filter by status</span>
         <svg

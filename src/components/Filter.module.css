@@ -44,5 +44,5 @@
 }
 
 .options li:hover {
-  background-color: var(--clr-neutral-300);
+  background-color: var(--clr-accent-4);
 }
