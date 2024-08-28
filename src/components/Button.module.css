@@ -1,0 +1,33 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  border: 0;
+  cursor: pointer;
+}
+
+.btnNeutral {
+  background-color: var(--clr-neutral-100);
+}
+
+.btnBlue {
+  background-color: var(--clr-accent-1);
+  color: var(--clr-neutral-100);
+}
+
+.btnIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-left: -0.5rem;
+
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-accent-1);
+  font-weight: 900;
+  border-radius: 50%;
+}

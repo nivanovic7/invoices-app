@@ -14,7 +14,7 @@
 }
 
 .filter svg {
-  stroke: var(--clr-neutral-100);
+  stroke: var(--clr-accent-1);
   transition: transform 0.1s;
 }
 
