@@ -1,0 +1,15 @@
+.arrow {
+  fill: var(--clr-accent-1);
+}
+
+.arrow-down {
+  transform: rotate(90deg);
+}
+
+.arrow-left {
+  transform: rotate(0deg);
+}
+
+.arrow-right {
+  transform: rotate(180deg);
+}

@@ -7,15 +7,23 @@
   border-radius: 1.5rem;
   border: 0;
   cursor: pointer;
+  color: var(--clr-neutral-100);
+}
+
+.button:hover {
+  opacity: 0.8;
 }
 
 .btnNeutral {
-  background-color: var(--clr-neutral-100);
+  background-color: var(--clr-tertiary);
+}
+
+.btnRed {
+  background-color: var(--clr-accent-3);
 }
 
 .btnBlue {
   background-color: var(--clr-accent-1);
-  color: var(--clr-neutral-100);
 }
 
 .btnIcon {

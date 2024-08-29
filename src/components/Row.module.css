@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1rem 2rem;
+  background-color: var(--clr-secondary);
+  border-radius: 5px;
+}
+
+.row div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

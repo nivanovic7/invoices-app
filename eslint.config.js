@@ -25,6 +25,7 @@ export default [
     },
     rules: {
       "react/prop-types": 0,
+      "react/forbid-prop-types": 0,
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
       ...react.configs["jsx-runtime"].rules,

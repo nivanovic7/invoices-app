@@ -1,4 +1,8 @@
 .main {
-  padding: 5rem 2rem;
   flex: 1;
+  padding: 5rem 1rem;
+
+  @media (min-width: 50rem) {
+    padding: 5rem 2rem;
+  }
 }

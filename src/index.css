@@ -3,6 +3,7 @@
 body {
   --clr-primary: hsl(233, 30%, 11%);
   --clr-secondary: hsl(236, 30%, 17%);
+  --clr-tertiary: hsl(231, 11%, 25%);
   --clr-neutral-100: hsl(60, 69%, 97%);
   --clr-neutral-300: hsl(237, 14%, 74%);
   --clr-primary-modal-bg: hsla(233, 29%, 5%, 0.5);
@@ -20,7 +21,7 @@ body {
   --ff-primary: "Roboto", sans-serif;
   --ff-logo: "Great Vibes", cursive;
 
-  --fs-300: 0.8rem;
+  --fs-200: 0.775rem;
   --fs-300: 0.8125rem;
   --fs-400: 0.8725rem;
   --fs-500: 1rem;
@@ -141,9 +142,12 @@ body {
 }
 
 .container {
-  width: 80%;
   max-width: 700px;
   margin: 0 auto;
+
+  @media (min-width: 50rem) {
+    width: 80%;
+  }
 }
 
 /* Utility classes */
