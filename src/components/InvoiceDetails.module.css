@@ -7,6 +7,10 @@
   }
 }
 
+.invoice > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .sellerInfo {
   display: flex;
   gap: 1rem;

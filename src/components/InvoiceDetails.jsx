@@ -1,5 +1,6 @@
 import Address from "./Address";
 import styles from "./InvoiceDetails.module.css";
+import InvoiceFooter from "./InvoiceFooter";
 import TitleAndDesc from "./TitleAndDesc";
 
 function InvoiceDetails() {
@@ -33,7 +34,7 @@ function InvoiceDetails() {
           />
         </TitleAndDesc>
       </main>
-      <footer className={styles.invoiceSummary}></footer>
+      <InvoiceFooter />
     </section>
   );
 }
