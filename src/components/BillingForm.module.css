@@ -1,8 +1,11 @@
 .form {
-  display: flex;
-  align-items: center;
+  width: 90%;
+  max-width: 650px;
+
+  background-color: var(--clr-primary);
+  padding: 3rem;
 }
 
-.form input {
-  background-color: aliceblue;
+.form > *:not(:last-child) {
+  margin-bottom: 1rem;
 }

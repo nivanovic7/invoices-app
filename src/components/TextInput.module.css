@@ -1,4 +1,11 @@
-.input {
+.inputWrap {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputWrap input {
+  background-color: var(--clr-secondary);
+  padding: 0.5rem;
+  border: 0;
 }

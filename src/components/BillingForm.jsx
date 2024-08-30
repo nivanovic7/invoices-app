@@ -10,6 +10,7 @@ import { DatePicker } from "formik-mui-x-date-pickers";
 import { TextField, styled } from "@mui/material";
 
 import dayjs from "dayjs";
+import Heading from "./Heading";
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
   backgroundColor: "lightblue", // Customize your background color here
@@ -25,7 +26,8 @@ function BillingForm() {
         initialValues={{ date: null }}
         onSubmit={(values) => console.log(values.date)}
       >
-        <Form>
+        <Form className={styles.form}>
+          <Heading text="Create Invoice" />
           <h3>Bill from</h3>
           <TextInput label="Street Address" name="street" type="text" />
           <TextInput label="City" name="city" type="text" />
