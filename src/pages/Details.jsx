@@ -5,6 +5,8 @@ import Status from "../components/Status";
 import styles from "./Details.module.css";
 import Arrow from "../components/Arrow";
 import InvoiceDetails from "../components/InvoiceDetails";
+import Modal from "../components/Modal";
+import BillingForm from "../components/BillingForm";
 
 function Details() {
   return (
@@ -26,6 +28,9 @@ function Details() {
         </div>
       </Row>
       <InvoiceDetails />
+      <Modal>
+        <BillingForm />
+      </Modal>
     </div>
   );
 }
