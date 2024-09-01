@@ -2,6 +2,10 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
 
   background-color: var(--clr-secondary);
 }
@@ -13,7 +17,7 @@
 @media (min-width: 50em) {
   .sidebar {
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     width: min-content;
   }
 
@@ -25,5 +29,6 @@
 @media (max-width: 50em) {
   .sidebar {
     max-height: min-content;
+    box-shadow: 1px 1px 10px 2px var(--clr-primary);
   }
 }

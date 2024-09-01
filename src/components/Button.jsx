@@ -1,8 +1,11 @@
 import styles from "./Button.module.css";
 
-function Button({ btnIcon = "", text, colorClass }) {
+function Button({ btnIcon = "", text, colorClass, type = "button" }) {
   return (
-    <button className={`${styles.button} ${styles[colorClass]}`}>
+    <button
+      type={type}
+      className={`${styles.button} ${styles[colorClass]} fw-semi-bold`}
+    >
       {btnIcon !== "" && <span className={styles.btnIcon}>{btnIcon}</span>}
       <span>{text}</span>
     </button>

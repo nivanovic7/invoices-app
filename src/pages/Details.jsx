@@ -7,6 +7,7 @@ import Arrow from "../components/Arrow";
 import InvoiceDetails from "../components/InvoiceDetails";
 import Modal from "../components/Modal";
 import BillingForm from "../components/BillingForm";
+import { useState } from "react";
 
 function Details() {
   return (
@@ -28,6 +29,7 @@ function Details() {
         </div>
       </Row>
       <InvoiceDetails />
+
       <Modal>
         <BillingForm />
       </Modal>

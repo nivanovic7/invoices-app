@@ -150,6 +150,11 @@ body {
   }
 }
 
+main:has(.modal) {
+  height: 100vh;
+  overflow: hidden;
+}
+
 /* Utility classes */
 
 .text-primary-400 {

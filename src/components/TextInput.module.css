@@ -6,6 +6,13 @@
 
 .inputWrap input {
   background-color: var(--clr-secondary);
-  padding: 0.5rem;
+  padding: 1rem;
+  color: var(--clr-neutral);
   border: 0;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.inputWrap:has(input[type="number"]) {
+  width: ;
 }

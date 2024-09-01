@@ -8,7 +8,7 @@ const TextInput = ({ label, ...props }) => {
       <label className="fs-small-text" htmlFor={props.id || props.name}>
         {label}
       </label>
-      <input {...field} {...props} />
+      <input className="fw-semi-bold fs-small-text" {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className={styles.error}>{meta.error}</div>
       ) : null}
