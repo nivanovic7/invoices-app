@@ -25,13 +25,13 @@ function BillingForm() {
         </div>
 
         <h3>Bill to</h3>
-        <TextInput label="Clinet's Name" name="street" type="text" />
-        <TextInput label="Client's Email" name="city" type="text" />
-        <TextInput label="Street Address" name="postCode" type="text" />
+        <TextInput label="Clinet's Name" name="clientStreet" type="text" />
+        <TextInput label="Client's Email" name="clientEmail" type="text" />
+        <TextInput label="Street Address" name="clientAddress" type="text" />
         <div className={styles.formGroup}>
-          <TextInput label="City" name="city" type="text" />
-          <TextInput label="Post Code" name="postCode" type="text" />
-          <TextInput label="Country" name="country" type="text" />
+          <TextInput label="City" name="clientCity" type="text" />
+          <TextInput label="Post Code" name="ClientPostCode" type="text" />
+          <TextInput label="Country" name="clientCountry" type="text" />
         </div>
         <TextInput label="Project desctiption" name="projectDesc" type="text" />
         <ItemList />

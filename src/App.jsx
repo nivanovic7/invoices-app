@@ -5,19 +5,22 @@ import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
 import Results from "./pages/Results";
 import Details from "./pages/Details";
+import { InvoiceProvider } from "./contexts/InvoiceContext";
 
 function App() {
   return (
     <div className="app">
-      <Router>
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<Main />}>
-            <Route index element={<Results />} />
-            <Route path="details" element={<Details />} />
-          </Route>
-        </Routes>
-      </Router>
+      <InvoiceProvider>
+        <Router>
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<Main />}>
+              <Route index element={<Results />} />
+              <Route path="details" element={<Details />} />
+            </Route>
+          </Routes>
+        </Router>
+      </InvoiceProvider>
     </div>
   );
 }
