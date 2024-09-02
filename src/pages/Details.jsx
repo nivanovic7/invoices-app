@@ -9,7 +9,7 @@ import Modal from "../components/Modal";
 import BillingForm from "../components/BillingForm";
 import { useState } from "react";
 
-function Details() {
+function Details({ onModalToggle, isModalOpen }) {
   return (
     <div className={`${styles.details} container`}>
       <Link to="/">
@@ -23,16 +23,22 @@ function Details() {
         </div>
 
         <div className={styles.buttonsWrap}>
-          <Button text="Edit" colorClass="btnNeutral" />
+          <Button
+            handleClick={onModalToggle}
+            text="Edit"
+            colorClass="btnNeutral"
+          />
           <Button text="Delete" colorClass="btnRed" />
           <Button text="Mark as Paid" colorClass="btnBlue" />
         </div>
       </Row>
       <InvoiceDetails />
 
-      <Modal>
-        <BillingForm />
-      </Modal>
+      {isModalOpen && (
+        <Modal>
+          <BillingForm />
+        </Modal>
+      )}
     </div>
   );
 }

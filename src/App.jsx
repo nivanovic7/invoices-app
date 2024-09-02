@@ -6,8 +6,16 @@ import Main from "./components/Main";
 import Results from "./pages/Results";
 import Details from "./pages/Details";
 import { InvoiceProvider } from "./contexts/InvoiceContext";
+import { useState } from "react";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handleModalToggle() {
+    console.log(isModalOpen);
+    setIsModalOpen((isModalOpen) => !isModalOpen);
+  }
+
   return (
     <div className="app">
       <InvoiceProvider>
@@ -15,8 +23,24 @@ function App() {
           <Sidebar />
           <Routes>
             <Route path="/" element={<Main />}>
-              <Route index element={<Results />} />
-              <Route path="details" element={<Details />} />
+              <Route
+                index
+                element={
+                  <Results
+                    isModalOpen={isModalOpen}
+                    onModalToggle={handleModalToggle}
+                  />
+                }
+              />
+              <Route
+                path="details"
+                element={
+                  <Details
+                    isModalOpen={isModalOpen}
+                    onModalToggle={handleModalToggle}
+                  />
+                }
+              />
             </Route>
           </Routes>
         </Router>

@@ -4,13 +4,14 @@ import Heading from "../components/Heading";
 import InvoiceItem from "../components/InvoiceItem";
 import { useInvoices } from "../contexts/InvoiceContext";
 import styles from "./Results.module.css";
+import BillingForm from "../components/BillingForm";
+import Modal from "../components/Modal";
 
-function Results() {
-  const { dispatch } = useInvoices();
+function Results({ isModalOpen, onModalToggle }) {
+  const { invoices, dispatch } = useInvoices();
 
   return (
     <div className={`${styles.results} container`}>
-      <button onClick={() => dispatch({ type: "create" })}>dispatch</button>
       <header className={styles.header}>
         <Heading text="Invoices">
           <p className="fs-small-text text-neutral-300">
@@ -18,14 +19,25 @@ function Results() {
           </p>
         </Heading>
         <Filter />
-        <Button text={"New invoice "} colorClass={"btnBlue"} btnIcon={"+"} />
+        <Button
+          handleClick={onModalToggle}
+          text={"New invoice "}
+          colorClass={"btnBlue"}
+          btnIcon={"+"}
+        />
       </header>
 
       <ul role="list">
-        <InvoiceItem />
-        <InvoiceItem />
-        <InvoiceItem />
+        {invoices.map((invoice) => (
+          <InvoiceItem key={invoice.id} invoice={invoice} />
+        ))}
       </ul>
+
+      {isModalOpen && (
+        <Modal>
+          <BillingForm />
+        </Modal>
+      )}
     </div>
   );
 }

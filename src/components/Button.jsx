@@ -1,8 +1,15 @@
 import styles from "./Button.module.css";
 
-function Button({ btnIcon = "", text, colorClass, type = "button" }) {
+function Button({
+  btnIcon = "",
+  text,
+  colorClass,
+  type = "button",
+  handleClick,
+}) {
   return (
     <button
+      onClick={handleClick}
       type={type}
       className={`${styles.button} ${styles[colorClass]} fw-semi-bold`}
     >
