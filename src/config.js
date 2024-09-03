@@ -1,7 +1,7 @@
 const emptyInvoice = {
   status: "",
   date: "",
-  paymentTerms: "Net 30 days",
+  paymentTerms: "",
   sender: {
     street: "",
     city: "",
@@ -23,4 +23,10 @@ const emptyInvoice = {
   ],
 };
 
-export { emptyInvoice };
+const paymentTermsOptions = [
+  { value: "30", label: "30 Days" },
+  { value: "20", label: "20 Days" },
+  { value: "10", label: "10 Days" },
+];
+
+export { emptyInvoice, paymentTermsOptions };

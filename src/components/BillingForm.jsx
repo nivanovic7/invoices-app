@@ -1,14 +1,15 @@
 import styles from "./BillingForm.module.css";
 
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import TextInput from "./TextInput";
 import Heading from "./Heading";
 import ItemList from "./ItemList";
 import Button from "./Button";
 import { useInvoices } from "../contexts/InvoiceContext";
-import { emptyInvoice } from "../config";
+import { emptyInvoice, paymentTermsOptions } from "../config";
 import { validationSchema } from "../helpers/helperFunctions";
 import DatePicker from "./DatePicker";
+import SelectInput from "./SelectInput";
 
 function BillingForm({ onModalToggle }) {
   const { selectedInvoice, dispatch } = useInvoices();
@@ -17,7 +18,7 @@ function BillingForm({ onModalToggle }) {
       className={styles.form}
       initialValues={selectedInvoice || emptyInvoice}
       onSubmit={(values) => console.log(values)}
-      //   validationSchema={validationSchema}
+      validationSchema={validationSchema}
     >
       <Form className={styles.form}>
         <Heading text="Create Invoice" />
@@ -40,7 +41,14 @@ function BillingForm({ onModalToggle }) {
           <TextInput label="Country" name="client.country" type="text" />
         </div>
 
-        <DatePicker name="date" label="Pick a date" />
+        <div className={styles.formGroup}>
+          <DatePicker name="date" label="Pick a date" />
+          <SelectInput
+            label="Payment terms"
+            name="paymentTerms"
+            options={paymentTermsOptions}
+          />
+        </div>
 
         <TextInput
           label="Project desctiption"

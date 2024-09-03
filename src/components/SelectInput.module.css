@@ -1,18 +1,21 @@
-.datePicker {
+.select {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.datePicker input {
+.select select {
   padding: 1rem;
   background-color: var(--clr-secondary);
-  color: var(--clr-neutral-100);
   border: 0;
   border-radius: 5px;
-  color-scheme: dark;
+  color: var(--clr-neutral-100);
+}
+
+.select option {
+  padding: 0.5rem;
 }
 
 .error {
-  color: rgb(224, 73, 73);
+  color: rgb(189, 48, 48);
 }

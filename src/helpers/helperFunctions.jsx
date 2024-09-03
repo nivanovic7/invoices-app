@@ -12,6 +12,8 @@ const itemSchema = yup.object({
 });
 
 const validationSchema = yup.object({
+  paymentTerms: yup.string().required("Payment terms is required"),
+  date: yup.date().required("Date is required"),
   sender: yup.object({
     street: yup.string().required("Street address is required"),
     city: yup.string().required("Street address is required"),

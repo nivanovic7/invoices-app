@@ -1,4 +1,4 @@
-import { Field } from "formik";
+import { ErrorMessage, Field } from "formik";
 import styles from "./DatePicker.module.css";
 
 function DatePicker(props) {
@@ -6,16 +6,16 @@ function DatePicker(props) {
   return (
     <div className={styles.datePicker}>
       <label className="fs-small-text" htmlFor="date">
-        Invoice Date
+        {label}
       </label>
       <Field name={name}>
         {({ form, field }) => {
           const { setFieldValue } = form;
           const { value } = field;
 
-          console.log(value);
           return (
             <input
+              max={new Date().toISOString().split("T")[0]}
               {...field}
               {...rest}
               type="date"
@@ -28,6 +28,11 @@ function DatePicker(props) {
           );
         }}
       </Field>
+      <ErrorMessage
+        name={name}
+        component="div"
+        className={`${styles.error} fs-small-text`}
+      />
     </div>
   );
 }
