@@ -1,0 +1,14 @@
+.datePicker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.datePicker input {
+  padding: 1rem;
+  background-color: var(--clr-secondary);
+  color: var(--clr-neutral-100);
+  border: 0;
+  border-radius: 5px;
+  color-scheme: dark;
+}

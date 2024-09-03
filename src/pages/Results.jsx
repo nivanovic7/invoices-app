@@ -26,7 +26,6 @@ function Results({ isModalOpen, onModalToggle }) {
           btnIcon={"+"}
         />
       </header>
-
       <ul role="list">
         {invoices.map((invoice) => (
           <InvoiceItem key={invoice.id} invoice={invoice} />

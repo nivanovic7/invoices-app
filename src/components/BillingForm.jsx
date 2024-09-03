@@ -8,6 +8,7 @@ import Button from "./Button";
 import { useInvoices } from "../contexts/InvoiceContext";
 import { emptyInvoice } from "../config";
 import { validationSchema } from "../helpers/helperFunctions";
+import DatePicker from "./DatePicker";
 
 function BillingForm({ onModalToggle }) {
   const { selectedInvoice, dispatch } = useInvoices();
@@ -16,10 +17,11 @@ function BillingForm({ onModalToggle }) {
       className={styles.form}
       initialValues={selectedInvoice || emptyInvoice}
       onSubmit={(values) => console.log(values)}
-      validationSchema={validationSchema}
+      //   validationSchema={validationSchema}
     >
       <Form className={styles.form}>
         <Heading text="Create Invoice" />
+
         <h3 className="text-accent-1">Bill from</h3>
         <TextInput label="Street Address" name="sender.street" type="text" />
         <div className={styles.formGroup}>
@@ -37,13 +39,15 @@ function BillingForm({ onModalToggle }) {
           <TextInput label="Post Code" name="client.postCode" type="text" />
           <TextInput label="Country" name="client.country" type="text" />
         </div>
+
+        <DatePicker name="date" label="Pick a date" />
+
         <TextInput
           label="Project desctiption"
           name="projectDescription"
           type="text"
         />
         <ItemList />
-
         <div className={styles.btnWrap}>
           <Button
             handleClick={onModalToggle}

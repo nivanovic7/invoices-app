@@ -42,3 +42,15 @@
     position: relative;
   }
 }
+
+.special > * {
+  padding: 1rem;
+  background-color: var(--clr-secondary);
+  border: 0;
+  color: var(--clr-neutral);
+  border-radius: 5px;
+}
+
+.special input {
+  color-scheme: dark;
+}
