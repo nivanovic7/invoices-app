@@ -1,7 +1,7 @@
 import styles from "./TextInput.module.css";
-import { useField } from "formik";
+import { ErrorMessage, useField } from "formik";
 
-const TextInput = ({ label, ...props }) => {
+const TextInput = ({ label, type, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <div className={styles.inputWrap}>
@@ -9,15 +9,18 @@ const TextInput = ({ label, ...props }) => {
         {label}
       </label>
       <input
+        type={type}
         autoComplete="true"
         id={props.name}
         className="fw-semi-bold fs-small-text"
         {...field}
         {...props}
       />
-      {meta.touched && meta.error ? (
-        <div className={styles.error}>{meta.error}</div>
-      ) : null}
+      <ErrorMessage name={props.name}>
+        {(msg) => (
+          <div className={`${styles.errorMessage} fs-small-text`}>{msg}</div>
+        )}
+      </ErrorMessage>
     </div>
   );
 };

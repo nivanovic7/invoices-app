@@ -13,6 +13,8 @@ body {
   --clr-accent-3: hsl(33, 80%, 52%);
   --clr-accent-4: hsl(235, 100%, 95%);
 
+  --clr-error: rgb(210, 81, 81);
+
   --clr-accent-1-faded: hsla(252, 99%, 68%, 0.1);
   --clr-accent-2-faded: hsl(237, 14%, 74%, 0.1);
   --clr-accent-3-faded: hsl(33, 80%, 52%, 0.1);

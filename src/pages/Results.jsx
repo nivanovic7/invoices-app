@@ -35,7 +35,7 @@ function Results({ isModalOpen, onModalToggle }) {
 
       {isModalOpen && (
         <Modal>
-          <BillingForm />
+          <BillingForm onModalToggle={onModalToggle} />
         </Modal>
       )}
     </div>

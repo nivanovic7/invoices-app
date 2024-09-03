@@ -7,7 +7,6 @@ import Arrow from "../components/Arrow";
 import InvoiceDetails from "../components/InvoiceDetails";
 import Modal from "../components/Modal";
 import BillingForm from "../components/BillingForm";
-import { useState } from "react";
 
 function Details({ onModalToggle, isModalOpen }) {
   return (
@@ -36,7 +35,7 @@ function Details({ onModalToggle, isModalOpen }) {
 
       {isModalOpen && (
         <Modal>
-          <BillingForm />
+          <BillingForm onModalToggle={onModalToggle} />
         </Modal>
       )}
     </div>

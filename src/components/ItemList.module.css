@@ -4,10 +4,15 @@
   gap: 1rem;
 }
 
-.itemList > * {
+.delete {
+  fill: var(--clr-neutral-300);
+}
+
+.total,
+.delete {
   align-self: center;
 }
 
-.itemList svg {
-  fill: var(--clr-neutral-300);
+.itemList > button {
+  grid-column: 1 / -1;
 }
