@@ -1,5 +1,5 @@
 const emptyInvoice = {
-  date: "",
+  invoiceDate: new Date().toISOString().split("T")[0],
   paymentTerms: "",
   sender: {
     street: "",

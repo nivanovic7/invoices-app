@@ -34,7 +34,7 @@ body {
 
   --fs-body: var(--fs-400);
   --fs-primary-heading: var(--fs-800);
-  --fs-featured: var(--fs-600);
+  --fs-featured: var(--fs-700);
   --fw-regular: 400;
   --fw-semi-bold: 500;
   --fw-bold: 700;
@@ -238,4 +238,8 @@ main:has(.modal) {
 }
 .fw-regular {
   font-weight: var(--fw-regular);
+}
+
+.text-right {
+  text-align: right;
 }

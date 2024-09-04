@@ -11,13 +11,14 @@ import { validationSchema } from "../helpers/helperFunctions";
 import DatePicker from "./DatePicker";
 import SelectInput from "./SelectInput";
 
-function BillingForm({ onModalToggle }) {
-  const { selectedInvoice, dispatch } = useInvoices();
+function BillingForm({ selectedInvoice = null, onModalToggle }) {
+  const { dispatch } = useInvoices();
   return (
     <Formik
       className={styles.form}
       initialValues={selectedInvoice || emptyInvoice}
       onSubmit={(values) => {
+        console.log("Subb");
         dispatch({ type: "invoice/create", payload: values });
         onModalToggle();
       }}
@@ -45,7 +46,7 @@ function BillingForm({ onModalToggle }) {
         </div>
 
         <div className={styles.formGroup}>
-          <DatePicker name="date" label="Pick a date" />
+          <DatePicker name="invoiceDate" label="Invoice date" />
           <SelectInput
             label="Payment terms"
             name="paymentTerms"

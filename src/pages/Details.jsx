@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Button from "../components/Button";
 import Row from "../components/Row";
 import Status from "../components/Status";
@@ -7,8 +7,18 @@ import Arrow from "../components/Arrow";
 import InvoiceDetails from "../components/InvoiceDetails";
 import Modal from "../components/Modal";
 import BillingForm from "../components/BillingForm";
+import { useInvoices } from "../contexts/InvoiceContext";
 
 function Details({ onModalToggle, isModalOpen }) {
+  const [searchParams] = useSearchParams();
+  const invoiceId = searchParams.get("id");
+
+  const invoices = useInvoices();
+  const selectedInvoice = invoices.invoices.filter(
+    (invoice) => invoice.id === invoiceId
+  )[0];
+
+  console.log(selectedInvoice);
   return (
     <div className={`${styles.details} container`}>
       <Link to="/">
@@ -18,7 +28,7 @@ function Details({ onModalToggle, isModalOpen }) {
       <Row>
         <div>
           <span>Status </span>
-          <Status status="penDinG" />
+          <Status status={selectedInvoice.status} />
         </div>
 
         <div className={styles.buttonsWrap}>
@@ -31,11 +41,14 @@ function Details({ onModalToggle, isModalOpen }) {
           <Button text="Mark as Paid" colorClass="btnBlue" />
         </div>
       </Row>
-      <InvoiceDetails />
+      <InvoiceDetails selectedInvoice={selectedInvoice} />
 
       {isModalOpen && (
         <Modal>
-          <BillingForm onModalToggle={onModalToggle} />
+          <BillingForm
+            selectedInvoice={selectedInvoice}
+            onModalToggle={onModalToggle}
+          />
         </Modal>
       )}
     </div>

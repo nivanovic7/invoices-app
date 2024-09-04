@@ -1,0 +1,19 @@
+.mobileFooter {
+  border-radius: 5px;
+  overflow: hidden;
+  @media (min-width: 50rem) {
+    display: none;
+  }
+}
+
+.mobileFooter > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.mobileFooter > div:last-child {
+  background-color: black;
+  padding: 2rem 1rem;
+}

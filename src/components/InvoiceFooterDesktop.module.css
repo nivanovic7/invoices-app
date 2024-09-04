@@ -24,26 +24,3 @@
   background-color: black;
   padding: 2rem;
 }
-
-.desktopFooter span:not(:first-child):not(:nth-child(5)) {
-  text-align: right;
-}
-
-.mobileFooter {
-  border-radius: 5px;
-  overflow: hidden;
-  @media (min-width: 50rem) {
-    display: none;
-  }
-}
-
-.mobileFooter > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-}
-
-.mobileFooter > div:nth-child(2) {
-  background-color: black;
-}

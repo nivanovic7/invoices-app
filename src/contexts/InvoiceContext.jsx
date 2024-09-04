@@ -5,15 +5,68 @@ import { calculateDueDate } from "../helpers/helperFunctions";
 const InvoiceContext = createContext();
 
 const initialState = {
-  invoices: [],
+  invoices: [
+    {
+      id: uuidv4(),
+      status: "draft",
+      dueDate: calculateDueDate(new Date(), 10),
+      invoiceDate: new Date().toISOString().split("T")[0],
+      paymentTerms: "10",
+      sender: {
+        street: "Cara dusana",
+        city: "Banjaluka",
+        postCode: "77000",
+        country: "Bih",
+      },
+      client: {
+        name: "Nikola Ivanovic",
+        email: "nikola@gmail.com",
+        street: "Sehovina",
+        city: "Nevesinje",
+        postCode: "82800",
+        country: "RS",
+      },
+      projectDescription: "Buzing stuff",
+      items: [
+        { itemName: "Laptop", quantity: "2", price: "999" },
+        { itemName: "Iphone", quantity: "1", price: "1550" },
+      ],
+    },
+    {
+      id: uuidv4(),
+      status: "pending",
+      dueDate: calculateDueDate(new Date(), 10),
+      invoiceDate: new Date().toISOString().split("T")[0],
+      paymentTerms: "10",
+      sender: {
+        street: "Cara lazara",
+        city: "Nevesinje",
+        postCode: "77000",
+        country: "Bih",
+      },
+      client: {
+        name: "Petar Markvic",
+        email: "nikola@gmail.com",
+        street: "Sehovina",
+        city: "Nevesinje",
+        postCode: "82800",
+        country: "RS",
+      },
+      projectDescription: "Buzing stuff",
+      items: [
+        { itemName: "Laptop", quantity: "2", price: "140" },
+        { itemName: "Iphone", quantity: "1", price: "150" },
+      ],
+    },
+  ],
   selectedInvoice: null,
   status: "home",
 };
 
 function reducer(state, action) {
-  console.log(action);
   switch (action.type) {
     case "invoice/create":
+      console.log(action.payload);
       return {
         ...state,
         invoices: [
@@ -22,7 +75,7 @@ function reducer(state, action) {
             id: uuidv4(),
             status: "draft",
             dueDate: calculateDueDate(
-              action.payload.date,
+              action.payload.invoiceDate,
               action.payload.paymentTerms
             ),
             ...action.payload,
@@ -38,8 +91,6 @@ function InvoiceProvider({ children }) {
     initialState
   );
 
-  console.log(invoices);
-
   return (
     <InvoiceContext.Provider
       value={{ invoices, selectedInvoice, status, dispatch }}
@@ -52,7 +103,7 @@ function InvoiceProvider({ children }) {
 function useInvoices() {
   const context = useContext(InvoiceContext);
   if (context === undefined) {
-    throw new Error("AuthContext was used outside AuthProvider");
+    throw new Error("InvoiceContext was used outside AuthProvider");
   }
   return context;
 }

@@ -13,7 +13,7 @@ const itemSchema = yup.object({
 
 const validationSchema = yup.object({
   paymentTerms: yup.string().required("Payment terms is required"),
-  date: yup.date().required("Date is required"),
+  invoiceDate: yup.date().required("Date is required"),
   sender: yup.object({
     street: yup.string().required("Street address is required"),
     city: yup.string().required("Street address is required"),
@@ -33,9 +33,13 @@ const validationSchema = yup.object({
 });
 
 function calculateDueDate(startDate, daysToAdd) {
-  var date = new Date(startDate).getTime();
-  const dueDate = date + +daysToAdd * 3600 * 24 * 1000;
-  return new Date(dueDate).toLocaleDateString();
+  var dateMiliseconds = new Date(startDate).getTime();
+  const dueDateMiliseconds = dateMiliseconds + +daysToAdd * 3600 * 24 * 1000;
+  return new Date(dueDateMiliseconds).toLocaleDateString();
 }
 
-export { validationSchema, calculateDueDate };
+function calculateInvoiceTotal(items) {
+  return items.reduce((sum, item) => sum + item.quantity * item.price, 0);
+}
+
+export { validationSchema, calculateDueDate, calculateInvoiceTotal };

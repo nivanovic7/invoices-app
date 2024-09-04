@@ -12,7 +12,6 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function handleModalToggle() {
-    console.log(isModalOpen);
     setIsModalOpen((isModalOpen) => !isModalOpen);
   }
 

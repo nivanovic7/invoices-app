@@ -3,38 +3,38 @@ import styles from "./InvoiceDetails.module.css";
 import InvoiceFooter from "./InvoiceFooter";
 import TitleAndDesc from "./TitleAndDesc";
 
-function InvoiceDetails() {
+function InvoiceDetails({ selectedInvoice }) {
   return (
     <section className={`${styles.invoice} bg-secondary`}>
       <header className={styles.sellerInfo}>
         <article>
-          <span>#ID</span>
+          <span>{selectedInvoice.id}</span>
           <br />
-          <span>Re-branding</span>
+          <span>{selectedInvoice.projectDescription}</span>
         </article>
         <Address
           //   textAlign="right"
-          street="Union terrase 18"
-          city="London"
-          postCode="EZ35S"
-          country="United Kingdom"
+          street={selectedInvoice.sender.street}
+          city={selectedInvoice.sender.city}
+          postCode={selectedInvoice.sender.postCode}
+          country={selectedInvoice.sender.country}
         />
       </header>
       <main className={styles.buyerInfo}>
-        <TitleAndDesc title="Invoice date" desc="Aug 18, 2021" />
-        <TitleAndDesc title="Payment due" desc="Aug 19, 2021" />
-        <TitleAndDesc title="Sent to" desc="jensenh@mail.com" />
-        <TitleAndDesc title="Bill to" desc="Jensen Huang">
+        <TitleAndDesc title="Invoice date" desc={selectedInvoice.invoiceDate} />
+        <TitleAndDesc title="Payment due" desc={selectedInvoice.dueDate} />
+        <TitleAndDesc title="Sent to" desc={selectedInvoice.client.email} />
+        <TitleAndDesc title="Bill to" desc={selectedInvoice.client.name}>
           <Address
             textAlign="left"
-            street="106 Kendell Street"
-            city="Manchester"
-            postCode="NR24 5WQ"
-            country="United Kingdom"
+            street={selectedInvoice.client.street}
+            city={selectedInvoice.client.city}
+            postCode={selectedInvoice.client.postCode}
+            country={selectedInvoice.client.country}
           />
         </TitleAndDesc>
       </main>
-      <InvoiceFooter />
+      <InvoiceFooter selectedInvoice={selectedInvoice} />
     </section>
   );
 }
