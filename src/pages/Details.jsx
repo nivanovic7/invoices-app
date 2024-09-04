@@ -24,6 +24,13 @@ function Details({ onModalToggle, isModalOpen }) {
     navigate("/");
   }
 
+  function handleMarkAsPaid() {
+    dispatch({
+      type: "invoice/markAsPaid",
+      payload: { ...selectedInvoice, status: "paid" },
+    });
+  }
+
   return (
     <div className={`${styles.details} container`}>
       <Link to="/">
@@ -47,7 +54,13 @@ function Details({ onModalToggle, isModalOpen }) {
             text="Delete"
             colorClass="btnRed"
           />
-          <Button text="Mark as Paid" colorClass="btnBlue" />
+          {selectedInvoice.status !== "paid" && (
+            <Button
+              handleClick={handleMarkAsPaid}
+              text="Mark as Paid"
+              colorClass="btnBlue"
+            />
+          )}
         </div>
       </Row>
       <InvoiceDetails selectedInvoice={selectedInvoice} />

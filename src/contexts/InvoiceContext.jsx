@@ -96,6 +96,11 @@ function reducer(state, action) {
           (invoice) => invoice.id !== action.payload
         ),
       };
+    case "invoice/markAsPaid":
+      return {
+        ...state,
+        invoices: replaceEditedItem(state.invoices, action.payload),
+      };
   }
 }
 
