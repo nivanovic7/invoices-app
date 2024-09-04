@@ -1,5 +1,6 @@
 import { ErrorMessage, Field } from "formik";
 import styles from "./SelectInput.module.css";
+import InputMessage from "./InputMessage";
 
 function SelectInput({ label, options, name, ...props }) {
   return (
@@ -15,11 +16,9 @@ function SelectInput({ label, options, name, ...props }) {
           </option>
         ))}
       </Field>
-      <ErrorMessage
-        name={name}
-        component="div"
-        className={`${styles.error} fs-small-text`}
-      />
+      <ErrorMessage name={name}>
+        {(msg) => <InputMessage message={msg} type="error" />}
+      </ErrorMessage>
     </div>
   );
 }

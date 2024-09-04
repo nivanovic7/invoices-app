@@ -1,5 +1,6 @@
 import { ErrorMessage, Field } from "formik";
 import styles from "./DatePicker.module.css";
+import InputMessage from "./InputMessage";
 
 function DatePicker(props) {
   const { label, name, ...rest } = props;
@@ -28,11 +29,9 @@ function DatePicker(props) {
           );
         }}
       </Field>
-      <ErrorMessage
-        name={name}
-        component="div"
-        className={`${styles.error} fs-small-text`}
-      />
+      <ErrorMessage name={props.name}>
+        {(msg) => <InputMessage message={msg} type="error" />}
+      </ErrorMessage>
     </div>
   );
 }

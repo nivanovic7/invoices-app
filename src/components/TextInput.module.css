@@ -13,18 +13,12 @@
   width: 100%;
 }
 
-/* Chrome, Safari, Edge, Opera */
 .inputWrap input::-webkit-outer-spin-button,
 .inputWrap input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
 .inputWrap input[type="number"] {
   -moz-appearance: textfield;
-}
-
-.errorMessage {
-  color: var(--clr-error);
 }

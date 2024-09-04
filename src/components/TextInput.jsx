@@ -1,3 +1,4 @@
+import InputMessage from "./InputMessage";
 import styles from "./TextInput.module.css";
 import { ErrorMessage, useField } from "formik";
 
@@ -17,9 +18,7 @@ const TextInput = ({ label, type, ...props }) => {
         {...props}
       />
       <ErrorMessage name={props.name}>
-        {(msg) => (
-          <div className={`${styles.errorMessage} fs-small-text`}>{msg}</div>
-        )}
+        {(msg) => <InputMessage message={msg} type="error" />}
       </ErrorMessage>
     </div>
   );
