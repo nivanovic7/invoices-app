@@ -1,5 +1,4 @@
 const emptyInvoice = {
-  status: "",
   date: "",
   paymentTerms: "",
   sender: {

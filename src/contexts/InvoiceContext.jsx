@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { calculateDueDate } from "../helpers/helperFunctions";
 
 const InvoiceContext = createContext();
 
@@ -10,6 +11,7 @@ const initialState = {
 };
 
 function reducer(state, action) {
+  console.log(action);
   switch (action.type) {
     case "invoice/create":
       return {
@@ -19,27 +21,11 @@ function reducer(state, action) {
           {
             id: uuidv4(),
             status: "draft",
-            date: "Aug 18 2023",
-            paymentTerms: "Net 30 days",
-            sender: {
-              street: "cara dusana",
-              city: "banjaluka",
-              postCode: 78000,
-              country: "BiH",
-            },
-            client: {
-              name: "nikola invaonvic",
-              email: "nikola@gmial.com",
-              street: "cara lazara",
-              city: "nevesinje",
-              postCode: 88289,
-              country: "BiH",
-            },
-            projectDescription: "It job",
-            items: [
-              { itemName: "Laptop", quantity: 1, price: 999 },
-              { itemName: "Iphone", quantity: 2, price: 1550 },
-            ],
+            dueDate: calculateDueDate(
+              action.payload.date,
+              action.payload.paymentTerms
+            ),
+            ...action.payload,
           },
         ],
       };
@@ -51,6 +37,8 @@ function InvoiceProvider({ children }) {
     reducer,
     initialState
   );
+
+  console.log(invoices);
 
   return (
     <InvoiceContext.Provider

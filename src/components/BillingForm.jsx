@@ -1,6 +1,6 @@
 import styles from "./BillingForm.module.css";
 
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import TextInput from "./TextInput";
 import Heading from "./Heading";
 import ItemList from "./ItemList";
@@ -17,7 +17,10 @@ function BillingForm({ onModalToggle }) {
     <Formik
       className={styles.form}
       initialValues={selectedInvoice || emptyInvoice}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => {
+        dispatch({ type: "invoice/create", payload: values });
+        onModalToggle();
+      }}
       validationSchema={validationSchema}
     >
       <Form className={styles.form}>
@@ -62,7 +65,8 @@ function BillingForm({ onModalToggle }) {
             colorClass="btnSecondary"
             text="Cancel"
           />
-          <Button type="submit" colorClass="btnBlue" text="Save changes" />
+
+          <Button type="submit" colorClass="btnBlue" text="Save as Draft" />
         </div>
       </Form>
     </Formik>

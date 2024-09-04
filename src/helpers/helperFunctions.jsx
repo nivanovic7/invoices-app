@@ -32,4 +32,10 @@ const validationSchema = yup.object({
   items: yup.array().of(itemSchema).min(1, "At least one item is required!"),
 });
 
-export { validationSchema };
+function calculateDueDate(startDate, daysToAdd) {
+  var date = new Date(startDate).getTime();
+  const dueDate = date + +daysToAdd * 3600 * 24 * 1000;
+  return new Date(dueDate).toLocaleDateString();
+}
+
+export { validationSchema, calculateDueDate };

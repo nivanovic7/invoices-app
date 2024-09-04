@@ -11,14 +11,14 @@ function calculateAmount(items) {
 function InvoiceItem({ invoice }) {
   return (
     <li className={styles.invoice}>
-      <Link to="details">
+      <Link to={`details/?id=${invoice.id}`}>
         <Row>
           <div>
             <span className={`${styles.id} fw-semi-bold`}>
               {invoice.id.slice(0, 5)}
             </span>
             <span className={`${styles.dueDate} text-neutral-300`}>
-              {invoice.date}
+              Due {invoice.dueDate}
             </span>
             <span className={`${styles.name} text-neutral-300`}>
               {invoice.client.name}
@@ -26,10 +26,10 @@ function InvoiceItem({ invoice }) {
           </div>
           <div>
             <span className={`${styles.amount} fs-featured`}>
-              {calculateAmount(invoice.items)}
+              ${calculateAmount(invoice.items)}
             </span>
 
-            <Status status="PaId" />
+            <Status status={invoice.status} />
             <Arrow direction="right" />
           </div>
         </Row>
