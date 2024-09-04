@@ -42,4 +42,13 @@ function calculateInvoiceTotal(items) {
   return items.reduce((sum, item) => sum + item.quantity * item.price, 0);
 }
 
-export { validationSchema, calculateDueDate, calculateInvoiceTotal };
+function replaceEditedItem(all, edited) {
+  return all.map((invoice) => (invoice.id === edited.id ? edited : invoice));
+}
+
+export {
+  validationSchema,
+  calculateDueDate,
+  calculateInvoiceTotal,
+  replaceEditedItem,
+};

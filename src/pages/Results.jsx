@@ -8,7 +8,7 @@ import BillingForm from "../components/BillingForm";
 import Modal from "../components/Modal";
 
 function Results({ isModalOpen, onModalToggle }) {
-  const { invoices, dispatch } = useInvoices();
+  const { invoices } = useInvoices();
 
   return (
     <div className={`${styles.results} container`}>

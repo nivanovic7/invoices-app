@@ -1,6 +1,9 @@
 import { createContext, useContext, useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { calculateDueDate } from "../helpers/helperFunctions";
+import {
+  calculateDueDate,
+  replaceEditedItem,
+} from "../helpers/helperFunctions";
 
 const InvoiceContext = createContext();
 
@@ -59,14 +62,11 @@ const initialState = {
       ],
     },
   ],
-  selectedInvoice: null,
-  status: "home",
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "invoice/create":
-      console.log(action.payload);
       return {
         ...state,
         invoices: [
@@ -81,6 +81,20 @@ function reducer(state, action) {
             ...action.payload,
           },
         ],
+      };
+
+    case "invoice/edit":
+      return {
+        ...state,
+        invoices: replaceEditedItem(state.invoices, action.payload),
+      };
+
+    case "invoice/delete":
+      return {
+        ...state,
+        invoices: state.invoices.filter(
+          (invoice) => invoice.id !== action.payload
+        ),
       };
   }
 }

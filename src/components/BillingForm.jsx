@@ -18,8 +18,10 @@ function BillingForm({ selectedInvoice = null, onModalToggle }) {
       className={styles.form}
       initialValues={selectedInvoice || emptyInvoice}
       onSubmit={(values) => {
-        console.log("Subb");
-        dispatch({ type: "invoice/create", payload: values });
+        selectedInvoice
+          ? dispatch({ type: "invoice/edit", payload: values })
+          : dispatch({ type: "invoice/create", payload: values });
+
         onModalToggle();
       }}
       validationSchema={validationSchema}
@@ -67,7 +69,11 @@ function BillingForm({ selectedInvoice = null, onModalToggle }) {
             text="Cancel"
           />
 
-          <Button type="submit" colorClass="btnBlue" text="Save as Draft" />
+          <Button
+            type="submit"
+            colorClass="btnBlue"
+            text={selectedInvoice ? "Save changes" : "Save as Draft"}
+          />
         </div>
       </Form>
     </Formik>

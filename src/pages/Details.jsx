@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Button from "../components/Button";
 import Row from "../components/Row";
 import Status from "../components/Status";
@@ -10,15 +10,20 @@ import BillingForm from "../components/BillingForm";
 import { useInvoices } from "../contexts/InvoiceContext";
 
 function Details({ onModalToggle, isModalOpen }) {
+  const { invoices, dispatch } = useInvoices();
   const [searchParams] = useSearchParams();
   const invoiceId = searchParams.get("id");
+  const navigate = useNavigate();
 
-  const invoices = useInvoices();
-  const selectedInvoice = invoices.invoices.filter(
-    (invoice) => invoice.id === invoiceId
-  )[0];
+  const selectedInvoice = invoices.filter((invoice) => {
+    return invoice.id === invoiceId;
+  })[0];
 
-  console.log(selectedInvoice);
+  function handleDelete() {
+    dispatch({ type: "invoice/delete", payload: selectedInvoice.id });
+    navigate("/");
+  }
+
   return (
     <div className={`${styles.details} container`}>
       <Link to="/">
@@ -37,7 +42,11 @@ function Details({ onModalToggle, isModalOpen }) {
             text="Edit"
             colorClass="btnNeutral"
           />
-          <Button text="Delete" colorClass="btnRed" />
+          <Button
+            handleClick={handleDelete}
+            text="Delete"
+            colorClass="btnRed"
+          />
           <Button text="Mark as Paid" colorClass="btnBlue" />
         </div>
       </Row>
